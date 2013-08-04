@@ -21,6 +21,13 @@ module PixiTest {
 
         constructor() {
 
+            $(window).resize(() => {
+                this.resize();
+            });
+            $(window).onorientationchange = () => {
+                this.resize();
+            };
+
             this.slideX = this.w / 2;
             this.slideY = this.h / 2;
 
@@ -68,14 +75,17 @@ module PixiTest {
 
         private resize()
         {
+
             this.w = $(window).width() - 16;
             this.h = $(window).height() - 16;
         
             this.slideX = this.w / 2;
             this.slideY = this.h / 2;
 
-            if (this.renderer instanceof PIXI.WebGLRenderer)
+            if (this.renderer instanceof PIXI.WebGLRenderer) {
+               
                 (<PIXI.WebGLRenderer> this.renderer).resize(this.w, this.h);
+            }
         }
 
         private update()

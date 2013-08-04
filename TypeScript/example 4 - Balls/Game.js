@@ -9,6 +9,13 @@ var PixiTest;
             this.sx = 1.0 + (Math.random() / 20);
             this.sy = 1.0 + (Math.random() / 20);
             this.stars = [];
+            $(window).resize(function () {
+                _this.resize();
+            });
+            $(window).onorientationchange = function () {
+                _this.resize();
+            };
+
             this.slideX = this.w / 2;
             this.slideY = this.h / 2;
 
@@ -55,8 +62,9 @@ var PixiTest;
             this.slideX = this.w / 2;
             this.slideY = this.h / 2;
 
-            if (this.renderer instanceof PIXI.WebGLRenderer)
+            if (this.renderer instanceof PIXI.WebGLRenderer) {
                 (this.renderer).resize(this.w, this.h);
+            }
         };
 
         Game.prototype.update = function () {
