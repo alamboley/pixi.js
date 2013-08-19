@@ -4,7 +4,7 @@ declare module PIXI
 	export var texturesToUpdate: PIXI.BaseTexture[];
 	export var TextureCache: any;
 
-    	export function autoDetectRenderer(width: number, height: number, view?: HTMLCanvasElement, transparent?: bool): PIXI.IRenderer;
+    	export function autoDetectRenderer(width: number, height: number, view?: HTMLCanvasElement, transparent?: boolean): PIXI.IRenderer;
 
 	export class AssetLoader extends EventTarget
 	{
@@ -39,7 +39,7 @@ declare module PIXI
 	export class BitmapFontLoader extends EventTarget
 	{
             	//constructor
-	    	constructor(url: string, crossorigins?: bool);
+	    	constructor(url: string, crossorigins?: boolean);
 
             	//methods
 	    	load(): void;
@@ -72,7 +72,7 @@ declare module PIXI
 	    	width: number;
  
    	        //constructor
-		constructor(width: number, height: number, view?: HTMLCanvasElement, transparent?: bool);
+		constructor(width: number, height: number, view?: HTMLCanvasElement, transparent?: boolean);
 		
 	    	//methods
 	    	render(stage: Stage): void;
@@ -98,7 +98,7 @@ declare module PIXI
 	{
 	    	//properties
 	    	alpha: number;
-	    	buttonMode: bool;
+	    	buttonMode: boolean;
 	    	hitArea: Rectangle;
 	    	parent: DisplayObjectContainer;
 	    	pivot: Point;
@@ -106,14 +106,14 @@ declare module PIXI
 	    	rotation: number;
 	    	scale: Point;
 	    	stage: Stage;
-	    	visible: bool;
+	    	visible: boolean;
 		
 	    	//constuctor
 	    	constructor();
 
 	    	//methods
 	    	updateTransform(): void;
-	    	setInteractive(interactive?: bool): void;
+	    	setInteractive(interactive?: boolean): void;
 		
 	    	//callbacks
 	    	click: (interactionData: InteractionData) => void;
@@ -152,7 +152,7 @@ declare module PIXI
 	export class ImageLoader extends EventTarget
 	{
 		//constructor
-	    	constructor(url: string, crossorigin?: bool);
+	    	constructor(url: string, crossorigin?: boolean);
 		
 		//methods
 	    	load(): void;
@@ -201,7 +201,7 @@ declare module PIXI
 	export class JsonLoader
 	{
 		//constructor
-		constructor(url:String, crossOrigin? : bool);
+		constructor(url:String, crossOrigin? : boolean);
 	}
 
 	export class MovieClip extends Sprite
@@ -209,8 +209,8 @@ declare module PIXI
 		//properties
 	    	animationSpeed: number;
 	    	currentFrame: number;
-	    	loop: bool;
-	    	playing: bool;
+	    	loop: boolean;
+	    	playing: boolean;
 	    	textures: Texture[];
 
 		//constructor
@@ -278,7 +278,7 @@ declare module PIXI
 	    	constructor(width: number, height: number);
 
         	//methods
-	    	render(displayObject: DisplayObject, clear?: bool): void;
+	    	render(displayObject: DisplayObject, clear?: boolean): void;
 	}
 	
 	export class Spine extends DisplayObjectContainer
@@ -289,7 +289,7 @@ declare module PIXI
 
 
 		//constructor
-		constructor(url: String, crossorigin?: bool);
+		constructor(url: String, crossorigin?: boolean);
 		
 		//methods
 		load(): void;
@@ -322,7 +322,7 @@ declare module PIXI
 	export class SpriteSheetLoader extends EventTarget
 	{
 		//constructor
-	    	constructor(url: string, crossorigins?: bool);
+	    	constructor(url: string, crossorigins?: boolean);
 		
 		//methods
 	    	load(): void;
@@ -331,7 +331,7 @@ declare module PIXI
 	export class Stage extends DisplayObjectContainer
 	{
 		//constructor
-	    	constructor(backgroundColor?: number, interactive?: bool);
+	    	constructor(backgroundColor?: number, interactive?: boolean);
 	
 		//methods
 	    	getMousePosition(): Point;
@@ -358,7 +358,7 @@ declare module PIXI
 		//static methods
 	    	static addTextureToCache(texture: Texture, id: string): void;
 	    	static fromCanvas(canvas: HTMLCanvasElement): Texture;
-	    	static fromImage(imageUrl: string, crossorigin?: bool): Texture;
+	    	static fromImage(imageUrl: string, crossorigin?: boolean): Texture;
 	    	static removeTextureFromCache(id: string): Texture;
 
 		//constructor
@@ -399,7 +399,7 @@ declare module PIXI
 	    	view: HTMLCanvasElement;
 
 		//constructor
-	    	constructor(width: number, height: number, view?: HTMLCanvasElement, transparent?: bool);
+	    	constructor(width: number, height: number, view?: HTMLCanvasElement, transparent?: boolean);
 		
 		//methods
 	    	render(stage: Stage): void;
