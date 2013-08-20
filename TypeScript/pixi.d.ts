@@ -85,7 +85,7 @@ declare module PIXI
     	x: number;
     	y: number;
 
-    	constructor(x:number = 0, y:number = 0, radius:number = 0);
+    	constructor(x?:number, y?:number, radius?:number);
 
     	clone():Circle;
     	contains(x:number, y:number):boolean;
@@ -171,7 +171,7 @@ declare module PIXI
 		width:number;
 		height:number;
 
-		constructor(x:number = 0, y:number = 0, width:number = 0, height:number = 0);
+		constructor(x?:number, y?:number, width?:number, height?:number);
 
 		clone():Ellipse;
 		contains(x:number, y:number):boolean;
@@ -187,7 +187,7 @@ declare module PIXI
 		drawElipse(x:number, y:number, width:number, height:number):void;
 		drawRect(x:number, y:number, width:number, height:number):void;
 		endFill():void;
-		lineStyle(lineWidth:number = 0, color:number = 0, alpha:number = 1):void;
+		lineStyle(lineWidth?:number, color?:number, alpha?:number):void;
 		lineTo(x:number, y:number):void;
 		moveTo(x:number, y:number):void;
 	}
