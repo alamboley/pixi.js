@@ -100,6 +100,7 @@ declare module PIXI
 	    	alpha: number;
 	    	buttonMode: boolean;
 	    	hitArea: Rectangle;
+	    	interactive: boolean;
 	    	parent: DisplayObjectContainer;
 	    	pivot: Point;
 	    	position: Point;
@@ -113,7 +114,6 @@ declare module PIXI
 
 	    	//methods
 	    	updateTransform(): void;
-	    	setInteractive(interactive?: boolean): void;
 		
 	    	//callbacks
 	    	click: (interactionData: InteractionData) => void;

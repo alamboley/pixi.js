@@ -53,7 +53,7 @@ module PixiTest {
                 button.position.y = buttonPositions[i*2 + 1];
                 
                 // make the button interactive..        
-                button.setInteractive(true);
+                button.interactive = true;
                 
                 // set the mousedown and touchstart callback..
                 button.mousedown = button.touchstart = function(data){
@@ -136,7 +136,7 @@ module PixiTest {
             pixiLogo.position.x = 620 - 56;
             pixiLogo.position.y = 400- 32;
             
-            pixiLogo.setInteractive(true);
+            pixiLogo.interactive = true;
             
             pixiLogo.click = pixiLogo.tap = function(){
                 

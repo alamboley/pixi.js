@@ -1,19 +1,26 @@
+///<reference path="../PIXI.d.ts"/>
 var PixiTest;
 (function (PixiTest) {
     var Game = (function () {
         function Game() {
+            // create an new instance of a pixi stage, the second parameter is interactivity.
             this.stage = new PIXI.Stage(0xFFFFFF, true);
 
+            // create a renderer instance
             this.renderer = PIXI.autoDetectRenderer(620, 400);
 
+            // add the renderer view element to the DOM
             document.body.appendChild(this.renderer.view);
 
             requestAnimationFrame(this.animate.bind(this));
 
+            // create a background..
             var background = PIXI.Sprite.fromImage("../../examples/example 6 - Interactivity/button_test_BG.jpg");
 
+            // add background to stage..
             this.stage.addChild(background);
 
+            // create some textures from an image path
             var textureButton = PIXI.Texture.fromImage("../../examples/example 6 - Interactivity/button.png");
             var textureButtonDown = PIXI.Texture.fromImage("../../examples/example 6 - Interactivity/buttonDown.png");
             var textureButtonOver = PIXI.Texture.fromImage("../../examples/example 6 - Interactivity/buttonOver.png");
@@ -43,14 +50,17 @@ var PixiTest;
                 button.position.x = buttonPositions[i * 2];
                 button.position.y = buttonPositions[i * 2 + 1];
 
-                button.setInteractive(true);
+                // make the button interactive..
+                button.interactive = true;
 
+                // set the mousedown and touchstart callback..
                 button.mousedown = button.touchstart = function (data) {
                     this.isdown = true;
                     this.setTexture(textureButtonDown);
                     this.alpha = 1;
                 };
 
+                // set the mouseup and touchend callback..
                 button.mouseup = button.touchend = button.mouseupoutside = button.touchendoutside = function (data) {
                     this.isdown = false;
 
@@ -61,6 +71,7 @@ var PixiTest;
                     }
                 };
 
+                // set the mouseover callback..
                 button.mouseover = function (data) {
                     this.isOver = true;
 
@@ -70,6 +81,7 @@ var PixiTest;
                     this.setTexture(textureButtonOver);
                 };
 
+                // set the mouseout callback..
                 button.mouseout = function (data) {
                     this.isOver = false;
                     if (this.isdown)
@@ -78,18 +90,25 @@ var PixiTest;
                 };
 
                 button.click = function (data) {
+                    // click!
                     console.log("CLICK!");
+                    //  alert("CLICK!")
                 };
 
                 button.tap = function (data) {
+                    // click!
                     console.log("TAP!!");
+                    //this.alpha = 0.5;
                 };
 
+                // add it to the stage
                 this.stage.addChild(button);
 
+                // add button to array
                 buttons.push(button);
             }
 
+            // set some silly values..
             buttons[0].scale.x = 1.2;
 
             buttons[1].scale.y = 1.2;
@@ -103,13 +122,14 @@ var PixiTest;
             buttons[4].scale.y = 1.2;
             buttons[4].rotation = Math.PI;
 
+            // add a logo!
             var pixiLogo = PIXI.Sprite.fromImage("../../examples/example 6 - Interactivity/pixi.png");
             this.stage.addChild(pixiLogo);
 
             pixiLogo.position.x = 620 - 56;
             pixiLogo.position.y = 400 - 32;
 
-            pixiLogo.setInteractive(true);
+            pixiLogo.interactive = true;
 
             pixiLogo.click = pixiLogo.tap = function () {
                 var win = window.open("https://github.com/GoodBoyDigital/pixi.js", '_blank');
@@ -118,6 +138,7 @@ var PixiTest;
         Game.prototype.animate = function () {
             requestAnimationFrame(this.animate.bind(this));
 
+            // render the stage
             this.renderer.render(this.stage);
         };
         return Game;

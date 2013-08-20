@@ -40,7 +40,7 @@ module PixiTest {
             var bunny:PIXI.Sprite = new PIXI.Sprite(this.texture);
             //  bunny.width = 300;
             // enable the bunny to be interactive.. this will allow it to respond to mouse and touch events     
-            bunny.setInteractive(true);
+            bunny.interactive = true;
             // this button mode will mean the hand cursor appears when you rollover the bunny with your mouse
             bunny.buttonMode = true;
             
