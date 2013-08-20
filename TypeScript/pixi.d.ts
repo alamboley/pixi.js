@@ -78,6 +78,20 @@ declare module PIXI
 	    	render(stage: Stage): void;
 	}
 
+	export class Circle {
+
+		//properties
+		radius: number;
+    	x: number;
+    	y: number;
+
+    	constructor(x:number = 0, y:number = 0, radius:number = 0);
+
+    	clone():Circle;
+    	contains(x:number, y:number):boolean;
+
+	}
+
 	export class CustomRenderable extends DisplayObject
 	{
 	    	//properties
@@ -109,7 +123,7 @@ declare module PIXI
 	    	stage: Stage;
 	    	visible: boolean;
 		
-	    	//constuctor
+	    	//constructor
 	    	constructor();
 
 	    	//methods
@@ -147,6 +161,35 @@ declare module PIXI
 	    	getChildAt(index: number): DisplayObject;
 	    	removeChild(displayObject: DisplayObject): void;
 	    	swapChildren(displayObject1: DisplayObject, displayObject2: DisplayObject): void;
+	}
+
+	export class Ellipse {
+
+		//properties:
+		x:number;
+		y:number;
+		width:number;
+		height:number;
+
+		constructor(x:number = 0, y:number = 0, width:number = 0, height:number = 0);
+
+		clone():Ellipse;
+		contains(x:number, y:number):boolean;
+	}
+
+	export class Graphics extends DisplayObjectContainer {
+
+		constructor();
+
+		beginFill(color:number, alpha:number):void;
+		clear():void;
+		drawCircle(x:number, y:number, radius:number):void;
+		drawElipse(x:number, y:number, width:number, height:number):void;
+		drawRect(x:number, y:number, width:number, height:number):void;
+		endFill():void;
+		lineStyle(lineWidth:number = 0, color:number = 0, alpha:number = 1):void;
+		lineTo(x:number, y:number):void;
+		moveTo(x:number, y:number):void;
 	}
 	
 	export class ImageLoader extends EventTarget
@@ -237,6 +280,7 @@ declare module PIXI
 		
 		//methods
 	    	clone(): Point;
+	    	contains(x:number, y:number):boolean;
 	}
 	
 	export class Polygon
