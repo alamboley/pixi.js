@@ -208,6 +208,7 @@ declare module PIXI
 	{
 		//properties
 	    	global: Point;
+	    	originalEvent: any;
 	    	target: Sprite;
 		
 		//constructor
